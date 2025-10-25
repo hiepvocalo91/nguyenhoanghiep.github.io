@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nguyễn Hoàng Hiệp - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: radial-gradient(circle at top, #001233, #000814);
+      color: #e0e0e0;
+      overflow-x: hidden;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 0 15px rgba(0,180,216,0.2);
+    }
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 28px;
+      color: #00b4d8;
+      margin: 0;
+      text-shadow: 0 0 10px #00b4d8;
+    }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #e0e0e0;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #00b4d8;
+      text-shadow: 0 0 8px #00b4d8;
+    }
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(0,180,216,0.15), transparent 70%);
+      animation: pulse 6s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% {opacity: 0.6;}
+      50% {opacity: 1;}
+    }
+    .hero h2 {
+      font-size: 40px;
+      color: #00b4d8;
+      font-family: 'Orbitron', sans-serif;
+      text-shadow: 0 0 15px #00b4d8;
+    }
+    .typing {
+      border-right: 2px solid #00b4d8;
+      display: inline-block;
+      animation: blink 0.8s infinite;
+    }
+    @keyframes blink {
+      0%, 50% { border-color: #00b4d8; }
+      51%, 100% { border-color: transparent; }
+    }
+    .hero p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: 10px auto;
+    }
+    .btn {
+      background: #00b4d8;
+      color: #000814;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 20px;
+      transition: 0.3s;
+      box-shadow: 0 0 10px #00b4d8;
+    }
+    .btn:hover {
+      background: #0096c7;
+      box-shadow: 0 0 20px #00b4d8;
+    }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 60px;
+    }
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      transition: 0.4s;
+      box-shadow: 0 0 10px rgba(0,180,216,0.2);
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    .card.visible {
+      transform: translateY(0);
+      opacity: 1;
+      transition: all 0.6s cubic-bezier(.2,.9,.2,1);
+    }
+    .card:hover {
+      transform: translateY(-5px) scale(1.02);
+      border-color: #00b4d8;
+      box-shadow: 0 0 20px #00b4d8;
+    }
+    .card h3 {
+      color: #00b4d8;
+    }
+    .contact {
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .socials a {
+      margin: 0 10px;
+      color: #00b4d8;
+      text-decoration: none;
+      font-size: 22px;
+      transition: 0.3s;
+    }
+    .socials a:hover {
+      text-shadow: 0 0 8px #00b4d8;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      header { padding: 12px 20px; }
+      .hero { padding: 70px 10px; }
+      .hero h2 { font-size: 28px; }
+      .projects { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Nguyễn Hoàng Hiệp</h1>
+    <nav>
+      <a href="#about">Giới thiệu</a>
+      <a href="#projects">Dự án</a>
+      <a href="#contact">Liên hệ</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="about">
+    <h2><span id="typing-text"></span><span class="typing"></span></h2>
+    <p>Phát triển các công cụ tự động hoá, nhận diện OCR và phần mềm hỗ trợ sản xuất thông minh. Đam mê công nghệ và sáng tạo.</p>
+    <button class="btn" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">Xem dự án</button>
+  </section>
+
+  <section id="projects">
+    <h2 style="text-align:center; font-family:'Orbitron'; color:#00b4d8; text-shadow:0 0 10px #00b4d8;">DỰ ÁN &amp; SẢN PHẨM</h2>
+    <div class="projects">
+      <div class="card">
+        <h3>OCR Kiểm Tra Linh Kiện SMD</h3>
+        <p>Phần mềm dùng camera nhận diện mã DID &amp; Part Number, xác định PASS/NG cho dây chuyền SMT.</p>
+      </div>
+      <div class="card">
+        <h3>Hệ thống Nhận diện Camera</h3>
+        <p>Tự động đọc dữ liệu từ màn hình máy, xử lý ảnh và xuất kết quả kiểm tra sản phẩm.</p>
+      </div>
+      <div class="card">
+        <h3>Tool Quản lý Barcode Kho SMD</h3>
+        <p>Quản lý vị trí cuộn linh kiện, nhập xuất bằng barcode, hiển thị vị trí trên sơ đồ giá hàng.</p>
+      </div>
+      <div class="card">
+        <h3>Dashboard Sản Xuất</h3>
+        <p>Trang thống kê sản lượng, lỗi và hiệu suất theo thời gian thực, kết nối dữ liệu từ máy.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="contact" id="contact">
+    <h3>Liên hệ</h3>
+    <div class="socials">
+      <a href="#">Facebook</a>
+      <a href="#">Zalo</a>
+      <a href="mailto:example@gmail.com">Email</a>
+      <a href="#">GitHub</a>
+    </div>
+    <p style="margin-top:10px; font-size:12px; color:#999;">© 2025 Nguyễn Hoàng Hiệp. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const text = "Kỹ sư phần mềm & Giải pháp công nghệ";
+    let i = 0;
+    const speed = 80;
+    function typeWriter() {
+      if (i < text.length) {
+        document.getElementById("typing-text").textContent += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+    window.onload = function() {
+      typeWriter();
+      // Reveal project cards with scroll animation
+      const cards = document.querySelectorAll('.card');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {threshold: 0.15});
+      cards.forEach(card => observer.observe(card));
+    }
+  </script>
+</body>
+</html>
